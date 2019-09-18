@@ -1,0 +1,20 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+------------------------------------------------------------------------------------------------------------------------------
+
+path.png
+
+--We observe that the path chosen by this particular run is not the shortest path.
+--We also observe that it can also retrace its own path multiple times (eg. W E W E) since with probability 1 - p (which is 0.8 in this case) it randomly chooses a valid move.
+
+
+plot.png
+
+--On an average we observe that the number of actions required to reach the goal decreases as p increase from 0 to 1.
+--For p=0, the agent chooses any move completely at random (valid) and so to takes a lot steps to reach towards its goal.
+--For p=1, the agent chooses a shortest path between the start and the end point (which in this particular case requires 22 moves)
+--The graph does not look like monotonously decreasing - This is because the plot is only for 1 run of the problem and hence may not be a true representative of the expected steps it takes to reach the goal (Ideally we should average across multiple runs).
+
+
+-------------------------------------------------------------------------------------------------------------------------------

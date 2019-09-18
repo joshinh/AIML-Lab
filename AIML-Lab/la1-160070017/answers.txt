@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------------------------------------------------------------------
+Task2:
+
+1.
+
+Points:
+i. For both the training and test data we observe that the accuracy initially increases very rapidly but converges very early in the training procedure i.e. it plateaus and is almost constant on an average.
+ii. The accuracy on the training set is more than that on the test set, which is expected since we have trained the perceptron by "looking" at the points in the training set. The test set is used to test the generalization error i.e. how well can our model perform on unseen data and hence it is expected that it is less than the training accuracy.
+
+
+2.
+
+Points:
+i. We observe that the accuracy on the training set decreases as the size of the training set increases. This can be because, the model overfits very quickly on the training set when the number of samples are small and thus it will get harder to fit the training set as its size increases.
+ii. For the test size, we observe that as the size of the training set increases, the accuracy on the test set increases. This is because a small training set may not be a good representative of the training distribution and hence the model will not be able to generalize well on unsees points (this can also be seen by the overfitting explained by part(a) leading to poor test accuracy). Hence as the size of the training set increases, the accuracy on the test set increases.
+
+If there are zero training points, we would expect the classification to be uniformly random (depeneding on the initialization of weights). Thus we could predict each point to be belonging to a class with an equal probability. On the given dataset, since the number of classes is 10, we would expect the accuracy to be 1/10 * 100 = 10%.
+
+--------------------------------------------------------------------------------------------------------------------
+Task 3.1:
+
+Accuracy on the dataset D1.2:
+1. 1vr - 71.3%
+2. 1v1 - 71.5%
+
+Accuracy on the dataset D1:
+1. 1vr - 73.8%
+2. 1v1 - 78.8%
+
+Observation:
+We observe that when working on the reduced dataset, the accuracy of the two algorithms are very similar. But when we use the full training set, there is a considerable difference in the accuracy of the two classifiers, with 1v1 performing much better (78.8%) than 1vr(73.8%).
+
+Explaination:
+In the one-vs-one multi-class perceptron, we have weight vector corresponding to every pair of classes. On the other hand, the one-vs-rest classifier has only one weight vector for each class. This means that provided we have more amount of data, we are better able to find the seprating hyperplanes in 1v1 accounting to more weight vectors (and hence more seperating planes). But note that a small dataset might not be representative of the training distribution and hence the 1v1 classifier is not able to learn enough to generalize to new unseen data.
+
+
+-------------------------------------------------------------------------------------------------------------------- 
+
+

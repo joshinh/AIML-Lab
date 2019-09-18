@@ -1,0 +1,28 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+############################################
+Task 4:
+
+Note: Sampled dataset size in boosting is 0.5.
+
+Observations:
+1. We observe that in both bagging and boosting, the training accuracy increases as the number of base classifiers is increased but it starts to plateau after a certain threshold.
+2. The test and val accuracy also increases intitially for both bagging and boosting but it plateuas after a certain point, and even decreases slighlty indicating a hint of overfitting.
+3. We also observe that for the training accuracy, the boosting is better able to fit the data as compared to bagging.
+
+--------------------------------------------------------------------------------------------------------------------
+
+Answers:
+
+1. We observe that in the case of boosting, the training accuracy reaches close to 91% whereas in the case of bagging only reaches a maximum training accuracy close to 88%. Theorotically, in the case of bagging, we always sample the new dataset from the same original dataset which is unweighted. On the other hand, in the case of boosting, the new data on which each base learner is trained is sampled from a weighted dataset. Morever we update the weignts to ensure that the next base classifier focuses more on learning to classify those points correctly which the previous base learners misclassified. Hence, we should expect that for the same number of base classifiers boosting performs better than bagging (which is also seem empirically)
+
+Note: The difference between the accuracies will be more evident when the graph is averaged across a large number of runs.
+
+----------------------------------------------------------------------------------------------------------
+
+2. The given statement is TRUE.
+
+Reason: In n-dimensional space, we can visualize a single perceptron as finding the best seperating hyperplane for the dataset. On the other hand, in the case of ensemble methods, each base classifier learns a slightly a different set of weights (and hence different hyperplanes) and thus the weighted majority separting curve will represent some non-linearly separable convex region region which cannot be obtained by a single perceptron. As an example consider the problem of finding the function boolean AND. We know that a single perceptron cannot represent this function exactly (since it will misclassify the negative points as having positive labels). But the ensemble can easily learn two base classifier (say equivalent to line x=0 and y=0 in that space) and hence be able to perfectly represent the AND function.
+
+--------------------------------------------------------------------------------------------------------

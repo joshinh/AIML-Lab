@@ -1,0 +1,62 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+########################################################################
+
+Task 2.5
+
+Note: The current hyperparametrs in the submitted file do not correspond to the minimal topology network in the sense that the minimal topology network could not be guaranteed to have above cutoff accuracy for different random seeds. Neverthless, the networks are significantly minimized to ensure above cut-off accuracy for majority of the random seeds.
+
+Here, I report the hyperparameters currently in use (which gives above cutoff accuracy across almost all random seeds):
+
+1. Task 2.1
+	Learning rate: 0.8
+	Number of hidden layer: 1
+	Nodes in hidden layer: 5
+	Batch size: 1
+	Number of epochs: 10
+
+	Explaination: Ideally two boolean function are enough to capture the XOR function, but because the sigmoid is a "soft" (not binary valued) function, we would expect to get good accuracy with a little more nodes (here 5). Note that it was possible to get good accuracy with 3 nodes (Random seed : 2) in hidden layer, but it fails to get above 90% accuracy for all the random seeds (even afer tuning learning rate).
+
+2. Task 2.2
+
+	Learning Rate: 1
+	Number of hidden layers: 1
+	Nodes in hidden layer: 3
+	Batch size: 1
+	Epochs: 5
+
+	Explaination: Although the semicircle problem cannot be easily represented as a boolean problem, we expect that a small number of nodes (order 1) should be enough to approximate a circle. In this case, I empirically observed that 2 nodes were enough to get very good accuracy (Random seed : 2) and 3 was sufficient to get above 90% accuracy across a range of different random seeds.
+
+3. Task 2.3
+	
+	Learning Rate: 0.1
+	Number of hidden layers: 1
+	Nodes in hidden layers: 20
+	Batch Size: 16
+	Epochs: 10
+
+	Explaination: Here if we could directly learn the exact distinguising features we should be able to capture it with just 4 nodes. But given that we use a sigmoid function and the fact that it is not necessary that each hidden node by itself learns a distinguising feature, we would expect that little more number of nodes should be sufficient. It was observed that 10 nodes are sufficient (Random seed: 2) for getting a good accuracy but I use 20 here to ensure that the code will pass the test cases for a range of different random seeds.
+
+4. Task 2.4
+
+	Learning Rate: 0.1
+	Number of CNN layers: 1
+	Size of filter: 10x10
+	Number of filters: 16
+	Stride in CNN: 2
+	Number of average pooling layer: 1
+	Stride in pooling: 4
+	Fully connected hidden layers: 1
+	Number of nodes in hidden layer: 50
+	
+	#Extra params
+	Random Seed: 0
+	Training Data Size: 10000
+	Test Data Size: 1000
+	Val Data Size: 1000
+
+	Explaination: In this task, I started off with the architecture given in test_feedforward.py. Although this gave above required accuracy, I tuned a few hyperparameters to minimize the network topology. Empirically, I found that using just 16 filters instead of 32 and reducing the number of nodes in the fully connected layer to 50 from 100 was still sufficient to get a good accucary on the CIFAR dataset.
+
+
+Note: In all the experiments, the batch size and the learning rate were also tuned as per requirement.

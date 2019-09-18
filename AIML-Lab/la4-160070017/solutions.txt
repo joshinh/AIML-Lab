@@ -1,0 +1,59 @@
+Name: Nitish Joshi
+Roll number: 160070017
+========================================
+
+
+================
+     TASK 2
+================
+
+
+1. Run your code on datasets/garden.csv, with different values of k. Looking at the performance plots, does the SSE of k-means algorithm ever increase as the iterations are made? (1 mark)
+Answer: No we observe that the SSE never increases as the number of iterations are made. The reason for this is that every update in the algorithm  recalculation of the centriods as well as reassignments to new centriods will always decrease the SSE. Therefore the SSE will never increase (although it can remain same if no update is made)
+
+3. Look at the files 3lines.png and mouse.png. Manually draw cluster boundaries around the 3 clusters visible in each file (no need to submit the hand drawn clusters). Test the k-means algorithm on the datasets datasets/3lines.csv and datasets/mouse.csv. How does the algorithm’s clustering compare with the clustering you would do by hand? Why do you think this happens? (1 mark)
+Answer: For the 3lines.csv dataset, the algorithm is not able to find the obvious clustering which we would have other drawn. The reason for this could be the poor initialization of points - if the cluster centriods were all initialized on the same line, then the algorithm will not be able to recognize the three lines but instead all of them could potentially lie on the middle line after convergence.
+In the case of mouse.png, the algorithm is almost able to find the expected clusters but the points on the border of two clusters have assigned in a opposite way as compared to our intuition. This is because the obtained clustering is actually converged and the one we expect will not have a local minimum SSE. (we also observe that there are a few outliers in this case)
+
+
+================
+     TASK 3
+================
+
+1. For each dataset, with kmeansplusplus initialization algorithm, report “average SSE” and "average iterations". Explain the results. (2 mark)
+Answer:
+
+Dataset     |  Initialization | Average SSE  | Average Iterations
+==================================================================
+   100.csv  |        forgy    |  8472.633   |  2.43
+   100.csv  |        kmeans++ |  8472.633   |  2.04
+  1000.csv  |        forgy    | 21337462.29 |  3.28  
+  1000.csv  |        kmeans++ | 20015951.60 |  3.44
+ 10000.csv  |        forgy    |168842238.612|  21.1
+ 10000.csv  |        kmeans++ | 80918168.249|  19.0
+
+Explaination: As we can see that in some cases the k means++ algorithm has smaller error but that is not always the case. This is because by encouraging cluster centers as far apart as possible, it can lead to larger SSE in corner cases where say there is one outlier very far away which is choosen to be cluster centriod (that point will always be associated with that cluster and no other point will be).
+Also we observe that on an average the kmeans++ converges faster (though again not necessarily true) since farther initialization ensures that the cluster centriods don't move around a lot.
+
+
+================
+  TASK 4
+================
+
+1. Can you observe from the visualization that k-medians algorithm is more robust to outliers as compared to k-means? Why do you think this happens? (1.5 marks)
+Answer: Yes we can observe that k-medians is more robust to outliers since in the present of an outlier, the clusters found from k-means algorithm change very easily whereas k-median is able to almost retain the original clustering while accomodating for the outlier point.
+Reason: This happens because the median measure does not actually take into account the value of the entitity but instead its position in the sorted order. On the other hand the mean measure is directly dependent and affected by the values of the entities. As an example consider this:
+Original - 1,2,3,4: Mean - 2.5, Median - 2.5
+One outlier - 1,2,3,4,1000 Mean - 202, Median - 3
+(this example demonstrates that median is more robust to outliers)
+
+================
+  TASK 8
+================
+
+1. What do you observe as we reduce the number of clusters (k)? Answer in reference to the quality of decompressed image. (0.5 mark)
+Answer: As we reduce the number of clusters, we observe that the image tends to get more blurry. This is because the range of different pixel values which the pixel values can now represent is limited by the available cluster centroids - Therefore the image is no more clear.
+
+
+2. You can observe that for the small number of clusters, the degree of compression (original size/compressed size) is about the same as that of when we use larger number of clusters even though we need to store lesser number of colors. Can you tell why? How can we increase this ratio in case of smaller number of clusters? [1 mark]
+Answer: The reason for this is because irrespective of the size of the k (the number of clusters), we need to store a cluster label for each pixel in the image. If store it using the same format as we do no for larger k- the compression ratio will be about the same. To increase this ratio, one option is to store the cluster labels which are specific to the current k - eg. if there are just clusters, in principle each label could be stored using just a single byte and hence the amount of compression would be much more.

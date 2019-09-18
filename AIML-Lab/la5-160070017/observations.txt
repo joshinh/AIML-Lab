@@ -1,0 +1,65 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+---------------------------------------------------------------------------------------
+
+Best hyperparameters:
+Ridge - Max iterations = 20000, learning rate = 0.00001, epsilon = 1e-4 and lambda = 12.
+Lasso - Max iterations = 1000 and lambda = 4e5.
+
+----------------------------------------------------------------------------------
+
+Task 3:
+
+Ridge Regression:
+-- The plot ridge_kfoldcv.png plots the sse vs lambda for ridge regresseion.
+-- Values of lambda used:
+[2,4,8,12,13,15,20,50]
+--Average SSE obatined for the corresponding lambda values above:
+[175841942147.0662, 172937603954.51364, 170761599037.98996, 170321438130.51614, 170322987012.63345, 170400989742.52478, 170853017168.62057, 175029860635.80228]
+--As we observe, among the available lambda values, we get the lowest sse using lambda=12, which is thus used ahead to report test number
+--Test SSE using lambda=12
+Test SSE : 540422248063.7331
+
+Lasso Regression:
+--The plot lasso_kfoldcv.png shows the fine-grained plot and lasso_kfoldcv_coarse.png shows the more coarse grained plot which was plotted first.
+--Values of lambda used for coarse plot:
+[1e2,1e3,1e4,1e5,4e5,1e6]
+--Average SSE for coarse plot:
+[798336355528.4644, 643282862405.1469, 216860059744.03793, 183191371850.64645, 168837158479.40097, 182324543416.57944]
+--Values for lambda for the more fine-grained plot:
+[1e5, 2e5,3e5,4e5, 5e5, 6e5, 7e5, 8e5]
+--Average SSE Values for fine-grained plot:
+[183191374184.5206, 172331785470.3497, 168839074089.6171, 168837196826.4996, 169338933651.89505, 171528895439.3802, 174211779328.58325, 176747942489.60806]
+--As we observe, the SSE is minimum for lambda=4e5.
+--Test SSE using lambda=4e5
+Test SSE: 529324225786.6995
+
+
+How plot was used?
+--We initially picked values for lambdas which were very far apart to plot the graph.
+--Corresponding to the value for which we get lowest SSE, we redraw the plot for values which are closer to the above obtained lambda values.
+--We choose the optimum lambda according to the second plot for which the average SSE is minimum during k-fold validation.
+--Note that we observe that this function is convex and hence we can find the close-to-optimum lambda using above procedure.
+
+---------------------------------------------------------------------------------------
+
+Task 5:
+
+--The main unusual thing with lasso regression is that the optimum weights which are obtained are very sparse as compared to that by ridge regression.
+
+--The number of zeros in the optimum W for the best lambda found by k-fold cross validation is:
+Ridge: 0
+Lasso: 203
+
+--This thus confirms that weights are more sparse in case of Lasso regression.
+
+--This happens because the solution to subgradient = 0 is w_i = 0 for a range of values of an intermediate quantity which are between -lambda and lambda. This is also evident if we plot the contours of least squares coefficient - The tend to intersect the regularization contours on the axes whereas ridge being spherically symetric, we do not expect this kind of bias towards points on the axes.
+
+--Yes using Lasso is advantageous - Since the weights are sparse, Lasso method provides us with additional information about the importance of the features. It is also thus theorotically possible to get the same accuracy even if we simply do not use those features for which the weight is 0.
+
+--The other unusual thing is that Lasso regression requires very high values of lambda to find the minimum possible SSE value as compared to Ridge regression which is again due the nature of L1 loss which is biased towards the axes.
+
+
+---------------------------------------------------------------------------------------------
+

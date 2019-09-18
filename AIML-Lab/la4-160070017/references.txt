@@ -1,0 +1,2 @@
+In this assignment, stackoverflow to was referred to understand how to read a file byte and byte.
+Also, stackoverflow was used to understand the function ord() and chr().

@@ -1,0 +1,28 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Task3:
+
+In this specific problem, there are two ways we could construct cost:
+i. In terms of difference between number of unknown values between two states - Since the difference between goal state and initial state is constant and it always decreases, this cost function reduces down to ii below.
+ii. Uniform cost between two states (states are obtained after propogating values)
+
+It is very difficult to construct an admissible heuristic since we don't know how much assignment of one value is going to propogate in other squares. With a trivial heurisitic and uniform cost, it simply reduces to eith BFS or DFS. Hence it is difficult to use A-star in this problem.
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Task 7:
+
+1. -- Djikstra's algorithm is equivalent to Uniform Cost Search - i.e. it is equivalent to A* search with trivial heuristic (zero). Assuming the heuristic in A* is admissible, the number of nodes visited in Djikstra's Algorithm will be greater than or equal to that by A* search.
+--The number of nodes visited is equal when h(x) = 0 and the difference between the nodes visited in the two cases is maximum when we have a perfect heuristic i.e h(x) = shortest distance to goal state.
+
+2. We can use the following heuristic function h(x):
+
+h(x) = min euclidean distance to a goal node which has not yet been visited.
+
+Explaination: By ensuring that we just use distance to the closest goal state we are guaranteed to reach that goal state first and then proceed ahead to the next nearest goal state. Note that this is a underestimation of the true remaining cost and hence is an admissible heuristic => Will converge to the optimal solution.
+
+------------------------------------------------------------------------------------------------------------------------------------------

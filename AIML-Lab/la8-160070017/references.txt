@@ -1,0 +1,2 @@
+1. Online python documentation was referred to find efficient way to reverse a list (https://stackoverflow.com/questions/4647368/how-do-i-reverse-a-part-slice-of-a-list-in-python/9898906)
+2. Russel and Norvig book was referred to understand the algorithm.

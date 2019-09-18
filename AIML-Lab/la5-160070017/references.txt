@@ -1,0 +1,2 @@
+1. Numpy documentation for understanding np.linalg.norm and np.split functions.
+2. Wikipedia page of Coordinate Gradient Descent to understand the method - https://en.wikipedia.org/wiki/Coordinate_descent

@@ -1,0 +1,1 @@
+I did not use any external resource for the assignment except the class notes of the AdaBoost algorithm.

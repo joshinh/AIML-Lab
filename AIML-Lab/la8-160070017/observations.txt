@@ -1,0 +1,36 @@
+Name: Nitish Joshi
+Roll No: 160070017
+
+-----------------------------------------------------------------------------------------------------------------
+
+Task4:
+
+-- We observe that the number of iterations taken to converge is much more for task 2 (on an average between 60-70 iterations) as compared to task 3 and 4 where number of iterations is approximately close to 15. The reason for this is that in task 2 we start with a random initial tour which may have very high cost - Thus it will require a lot of iterations to converge to local optimum as compared to the other two cases where the we have "good" initialisation (not very far from local optimum)
+-- The optimum tour length found by task 2 is between 750 and 800 whereas it is always less than 750 for task 3 and 4. This is because with a random intial tour, it is possible that we will get stuck at a bad local optimum which is much worse than the global optimum. In task 3,4 good initialization intuitively tells that the local optimums found will not be as bad compared to global optimum.
+-- Among task 3 and 4, we observe that task 3 generally converges a bit faster (max 14 iterations) comapred to task 4. But, we also observe that both the number of iterations to convergence as well as optimum tour length is very sensitive to the intitial city in task 3. This sensitivity is not present in task 4 giving it an advantage over task 3. If we average over all initial cities in task 3, then task 4 results are better on an average.
+
+--------------------------------------------------------------------------------------------------------------- 
+
+Task 6:
+
+--We observe that in both cases, the values of the optimum tour length found is almost same and is in the range of 750-800.
+--In terms of number of iterations, task 6 takes 50 iterations (worst case) compared to 70 in task 2.
+--Thus in this case both are equally good (or bad!) in terms of optimum tour length but convergence is faster in task 6 : This is because task 6 has both 2opt and 3opt neighbours and hence allows the model to explore strictly more than only 2opt.
+
+-------------------------------------------------------------------------------------------------------------
+
+Task 7:
+
+--We observe that the number of iterations taked to converge is 10 (worst case) in task 7 compared to 15 (worst case in ) in task 3 : Since task 7 uses both 2opt + 3opt the reason for faster convergence must be due to the better neighbour generating method.
+--In terms of tour length, both methods get approximately same optimum tour length though task 7 is slightly better for certain initial cities.
+--On an average, the 2opt+3opt method is less sensitive to the initial city since in all initializations we observe that optimum tour length is <700 compared ~740 in certain cases for task 3.
+
+-------------------------------------------------------------------------------------------------------------------
+
+Task 8:
+
+--In terms of number of iterations both the tasks almost same time to converge - 16 in task 4 vs 15 on task 8.
+--We also observe that task 8 is marginally better in finding the tour with minimum tour length where it finds tour with cost ~ 700 compared to the cost ~ 710 found in task 4.
+--The reason why the difference in time to convergence and min tour length is so small is that the initialization in both of these is guaranteed to be less than twice the optimal tour - Thus a good initialization ensures that the role of better neighbours is not so crucial since the model is easily able to find a good local optimum solution.
+
+--------------------------------------------------------------------------------------------------------------------  

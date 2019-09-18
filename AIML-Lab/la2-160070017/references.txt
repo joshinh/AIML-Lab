@@ -1,0 +1,2 @@
+1. No external references were used for this assignment apart from the class notes of CS337.
+2. For implementation, the official documentation of numpy was used for the understanding of functions like expand_dims, squeeze, tile , einsum etc.
